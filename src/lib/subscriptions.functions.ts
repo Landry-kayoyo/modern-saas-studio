@@ -982,7 +982,7 @@ export const getPaymentStatus = createServerFn({ method: "GET" })
       statut: payment.statut as PaymentStatus,
       plan_id: payment.plan_id,
       period: payment.period as SubscriptionPeriod,
-      montant_cdf: Number(payment.montant_cdf ?? payment.amount ?? 0),
+      montant_cdf: Number(payment.montant_cdf ?? (payment as any).amount ?? 0),
       currency: payment.currency ?? "CDF",
       montant_debite: payment.montant_debite ?? null,
       montant_net: payment.montant_net ?? null,

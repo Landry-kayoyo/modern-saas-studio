@@ -579,7 +579,7 @@ export const adminListCandidateMerchants = createServerFn({ method: "GET" })
       .eq("role", "admin");
 
     const adminUserIds = new Set((adminRoles ?? []).map((r: any) => r.user_id));
-    const profileMap = new Map((profiles ?? []).map((p: any) => [p.id, p]));
+    const profileMap = new Map<string, any>((profiles ?? []).map((p: any) => [p.id, p]));
 
     const candidates: CandidateMerchant[] = [];
     const seen = new Set<string>();
@@ -653,7 +653,7 @@ export const adminCreateBroadcast = createServerFn({ method: "POST" })
       .eq("role", "admin");
 
     const adminUserIds = new Set((adminRoles ?? []).map((r: any) => r.user_id));
-    const profileMap = new Map((profiles ?? []).map((p: any) => [p.id, p]));
+    const profileMap = new Map<string, any>((profiles ?? []).map((p: any) => [p.id, p]));
     const selectedSet = data.target_merchant_ids ? new Set(data.target_merchant_ids) : null;
 
     const targets: { merchant_id: string; shop_id: string; email: string }[] = [];

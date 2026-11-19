@@ -754,7 +754,7 @@ function DashboardAbonnementPage() {
             <div className="divide-y divide-border/60 rounded-2xl border bg-card overflow-hidden">
               {paginatedHistory.map((pay) => {
                 const status = resolvePaymentStatus(pay);
-                const amountCDF = Number(pay.montant_cdf ?? pay.amount ?? 0);
+                const amountCDF = Number(pay.montant_cdf ?? (pay as any).amount ?? 0);
 
                 const statusDot = {
                   payé: "bg-success",

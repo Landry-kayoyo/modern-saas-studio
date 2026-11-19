@@ -18,7 +18,7 @@ type FilterType = "7_days" | "30_days" | "7_months";
 
 function getPastPeriods(type: FilterType) {
   const monthsStr = ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Juil", "Aou", "Sep", "Oct", "Nov", "Dec"];
-  const result = [];
+  const result: { label: string; match: (date: Date) => boolean }[] = [];
   const d = new Date();
   
   if (type === "7_months") {
