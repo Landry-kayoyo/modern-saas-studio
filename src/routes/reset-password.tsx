@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AuthShell } from "@/components/auth/AuthShell";
 
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
@@ -124,6 +125,7 @@ function ResetPage() {
   }
 
   return (
+    <AuthShell>
     <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
       {/* Halos lumineux en arrière-plan */}
       <div className="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-[130px] pointer-events-none" />
@@ -309,5 +311,6 @@ function ResetPage() {
         </div>
       </div>
     </div>
+    </AuthShell>
   );
 }

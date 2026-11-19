@@ -486,3 +486,33 @@
   .marketnet-step, .marketnet-feature, .marketnet-sector, .marketnet-quote { padding: 22px; }
   .marketnet-final { padding-block: 64px; width: calc(100% - 24px); }
 }
+
+/* ---------- Auth split layout (desktop) ---------- */
+.auth-shell { min-height: 100dvh; background: var(--background); }
+.auth-showcase { display: none; }
+.auth-main { min-height: 100dvh; }
+@media (min-width: 1024px) {
+  .auth-shell { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); padding: 12px; gap: 12px; }
+  .auth-showcase { display: block; position: sticky; top: 12px; height: calc(100dvh - 24px); border-radius: calc(var(--radius) * 2); overflow: hidden; isolation: isolate; background: var(--surface-inverse); color: var(--surface-inverse-foreground); }
+  .auth-showcase-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.28; mix-blend-mode: luminosity; z-index: -2; }
+  .auth-showcase::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--gradient-glow), linear-gradient(180deg, color-mix(in oklab, var(--surface-inverse) 40%, transparent), var(--surface-inverse) 92%); }
+  .auth-showcase-inner { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 44px 48px; }
+  .auth-showcase-logo { width: fit-content; filter: brightness(0) invert(1); }
+  .auth-showcase-eyebrow { display: inline-flex; padding: 6px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--highlight); background: color-mix(in oklab, var(--highlight) 14%, transparent); border: 1px solid color-mix(in oklab, var(--highlight) 30%, transparent); margin-bottom: 22px; }
+  .auth-showcase-title { font-size: clamp(36px, 3.4vw, 52px); font-weight: 700; line-height: 1.04; letter-spacing: -0.03em; max-width: 520px; }
+  .auth-showcase-title em { display: block; font-family: var(--font-serif); font-weight: 400; color: var(--highlight); letter-spacing: -0.01em; }
+  .auth-showcase-points { display: grid; gap: 18px; margin-top: 36px; max-width: 440px; }
+  .auth-showcase-points li { display: flex; gap: 14px; align-items: flex-start; }
+  .auth-showcase-points li > span { flex-shrink: 0; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: color-mix(in oklab, var(--surface-inverse-foreground) 10%, transparent); border: 1px solid color-mix(in oklab, var(--surface-inverse-foreground) 14%, transparent); }
+  .auth-showcase-points svg { width: 18px; height: 18px; color: var(--highlight); }
+  .auth-showcase-points strong { font-size: 15px; font-weight: 600; }
+  .auth-showcase-points p { font-size: 14px; color: color-mix(in oklab, var(--surface-inverse-foreground) 68%, transparent); margin-top: 2px; }
+  .auth-showcase-quote { padding: 22px 24px; border-radius: var(--radius); background: color-mix(in oklab, var(--surface-inverse-foreground) 7%, transparent); border: 1px solid color-mix(in oklab, var(--surface-inverse-foreground) 12%, transparent); backdrop-filter: blur(12px); max-width: 480px; }
+  .auth-showcase-stars { display: flex; gap: 3px; margin-bottom: 10px; }
+  .auth-showcase-stars svg { width: 15px; height: 15px; color: var(--highlight); fill: currentColor; }
+  .auth-showcase-quote blockquote { font-family: var(--font-serif); font-size: 21px; line-height: 1.35; }
+  .auth-showcase-quote figcaption { margin-top: 10px; font-size: 13px; color: color-mix(in oklab, var(--surface-inverse-foreground) 65%, transparent); }
+  .auth-main { min-height: calc(100dvh - 24px); display: flex; flex-direction: column; justify-content: center; }
+  .auth-main > * { min-height: 0 !important; background: transparent !important; }
+  .auth-main .auth-brand { display: none; }
+}

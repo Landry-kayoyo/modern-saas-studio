@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, CheckCircle2, Loader2, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { AuthShell } from "@/components/auth/AuthShell";
 import { useServerFn } from "@tanstack/react-start";
 import { lovable } from "@/integrations/lovable/index";
 import { notifyNewUserRegistration } from "@/lib/admin.functions";
@@ -224,6 +225,7 @@ function AuthPage() {
   }
 
   return (
+    <AuthShell>
     <div className="auth-page">
       {/* Brand Header */}
       <div className="auth-brand">
@@ -615,5 +617,6 @@ function AuthPage() {
         </div>
       )}
     </div>
+    </AuthShell>
   );
 }
